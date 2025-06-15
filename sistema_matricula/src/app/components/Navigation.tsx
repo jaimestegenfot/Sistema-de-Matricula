@@ -43,10 +43,10 @@ export default function Navigation() {
         <div className="md:hidden bg-gradient-to-r from-green-500 to-cyan-700 text-white shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col">
             <Link href="/" className="block px-3 py-2 rounded-md text-base font-semibold text-yellow-300 bg-white/10 hover:bg-white/20">Inicio</Link>
-            <Link href="#institucion" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Nuestra Institución</Link>
-            <Link href="#vida" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Vida Escolar</Link>
-            <Link href="#nosotros" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Nosotros</Link>
-            <Link href="#contacto" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Contacto</Link>
+            <Link href="/institucion" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Nuestra Institución</Link>
+            <Link href="/vida" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Vida Escolar</Link>
+            <Link href="/nosotros" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Nosotros</Link>
+            <Link href="/contacto" className="block px-3 py-2 rounded-md text-base font-medium hover:text-yellow-300 hover:bg-white/10">Contacto</Link>
           </div>
         </div>
       )}
