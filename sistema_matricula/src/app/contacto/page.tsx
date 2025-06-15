@@ -1,13 +1,64 @@
 "use client"
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export default function Contacto() {
-  const [enviado, setEnviado] = useState(false);
+  const [formData, setFormData] = useState({
+    nombre: '',
+    correo: '',
+    telefono: '',
+    mensaje: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setEnviado(true);
-    setTimeout(() => setEnviado(false), 3000);
+    
+    try {
+      // Aquí iría la lógica de envío del formulario
+      // Por ahora solo simulamos el envío exitoso
+      
+      await Swal.fire({
+        title: '¡Mensaje Enviado!',
+        text: 'Gracias por contactarnos. Nos pondremos en contacto contigo pronto.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#10B981', // Color verde que coincide con tu tema
+        background: '#ffffff',
+        customClass: {
+          title: 'font-serif',
+          confirmButton: 'font-semibold'
+        }
+      });
+      
+      // Limpiar el formulario
+      setFormData({
+        nombre: '',
+        correo: '',
+        telefono: '',
+        mensaje: ''
+      });
+    } catch (error) {
+      await Swal.fire({
+        title: 'Error',
+        text: 'Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonColor: '#EF4444',
+        background: '#ffffff',
+        customClass: {
+          title: 'font-serif',
+          confirmButton: 'font-semibold'
+        }
+      });
+    }
   };
 
   return (
@@ -29,29 +80,62 @@ export default function Contacto() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           {/* Formulario */}
-          
           <form onSubmit={handleSubmit} className="space-y-4 border-2 border-green-700 rounded-lg p-4">
             <div>
               <label className="block text-gray-700 mb-1">Nombre</label>
-              <input type="text" required className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-3 focus:border-green-500 focus:ring-green-600" placeholder="Tu nombre" />
+              <input 
+                type="text" 
+                name="nombre"
+                value={formData.nombre}
+                onChange={handleInputChange}
+                required 
+                className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-3 focus:border-green-500 focus:ring-green-600" 
+                placeholder="Tu nombre" 
+              />
             </div>
             <div>
               <label className="block text-gray-700 mb-1">Correo Electrónico</label>
-              <input type="email" required className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-600" placeholder="Tu correo" />
+              <input 
+                type="email" 
+                name="correo"
+                value={formData.correo}
+                onChange={handleInputChange}
+                required 
+                className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-600" 
+                placeholder="Tu correo" 
+              />
             </div>
             <div>
               <label className="block text-gray-700 mb-1">Teléfono</label>
-              <input type="tel" required className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-600" placeholder="Tu teléfono" />
+              <input 
+                type="tel" 
+                name="telefono"
+                value={formData.telefono}
+                onChange={handleInputChange}
+                required 
+                className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-600" 
+                placeholder="Tu teléfono" 
+              />
             </div>
             <div>
               <label className="block text-gray-700 mb-1">Mensaje</label>
-              <textarea required className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-600" placeholder="Tu mensaje" rows={3}></textarea>
+              <textarea 
+                required 
+                name="mensaje"
+                value={formData.mensaje}
+                onChange={handleInputChange}
+                className="text-black w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-600" 
+                placeholder="Tu mensaje" 
+                rows={3}
+              ></textarea>
             </div>
-            <button type="submit" className="w-full bg-gradient-to-r from-green-500 to-cyan-700 text-white font-semibold py-2 rounded shadow-md hover:from-green-600 hover:to-cyan-800 transition-all">ENVIAR DATOS</button>
-            {enviado && <p className="text-green-600 text-center font-medium mt-2">¡Mensaje enviado correctamente!</p>}
+            <button 
+              type="submit" 
+              className="w-full bg-gradient-to-r from-green-500 to-cyan-700 text-white font-semibold py-2 rounded shadow-md hover:from-green-600 hover:to-cyan-800 transition-all"
+            >
+              ENVIAR DATOS
+            </button>
           </form>
-        
-          
 
           {/* Mapa */}
           <div className="w-full h-64 md:h-full rounded-lg overflow-hidden shadow-md">
@@ -65,7 +149,6 @@ export default function Contacto() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-            
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import Swal from 'sweetalert2';
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -32,10 +33,58 @@ export default function RegistrationForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Datos del formulario:', formData);
-    // Aquí iría el envío del formulario
+    
+    try {
+      // Aquí iría la lógica de envío del formulario
+      // Por ahora solo simulamos el envío exitoso
+      
+      await Swal.fire({
+        title: '¡Solicitud Enviada!',
+        text: 'Tu solicitud de admisión ha sido recibida. Nos pondremos en contacto contigo pronto para continuar con el proceso.',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#0D9488', // Color teal que coincide con tu tema
+        background: '#ffffff',
+        customClass: {
+          title: 'font-serif',
+          confirmButton: 'font-semibold'
+        }
+      });
+      
+      // Limpiar el formulario
+      setFormData({
+        nombresEstudiante: '',
+        apellidosEstudiante: '',
+        generoEstudiante: '',
+        tipoDocumentoEstudiante: '',
+        numeroDocumentoEstudiante: '',
+        nivel: '',
+        nombresPadre: '',
+        apellidosPadre: '',
+        generoPadre: '',
+        tipoDocumentoPadre: '',
+        numeroDocumentoPadre: '',
+        pais: '',
+        celular: '',
+        ocupacion: '',
+        correo: ''
+      });
+    } catch (error) {
+      await Swal.fire({
+        title: 'Error',
+        text: 'Hubo un problema al enviar la solicitud. Por favor, intenta nuevamente.',
+        icon: 'error',
+        confirmButtonText: 'Intentar de nuevo',
+        confirmButtonColor: '#EF4444',
+        background: '#ffffff',
+        customClass: {
+          title: 'font-serif',
+          confirmButton: 'font-semibold'
+        }
+      });
+    }
   };
 
   return (

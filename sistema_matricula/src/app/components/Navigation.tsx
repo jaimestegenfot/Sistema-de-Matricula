@@ -18,10 +18,10 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             <Link href="/" className="text-yellow-300 font-semibold px-2 md:px-4 py-1 md:py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 text-sm md:text-base">Inicio</Link>
-            <Link href="#institucion" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Nuestra Institución</Link>
-            <Link href="#vida" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Vida Escolar</Link>
-            <Link href="#nosotros" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Nosotros</Link>
-            <Link href="#contacto" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Contacto</Link>
+            <Link href="/institucion" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Nuestra Institución</Link>
+            <Link href="/vida" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Vida Escolar</Link>
+            <Link href="/nosotros" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Nosotros</Link>
+            <Link href="/contacto" className="hover:text-yellow-300 transition-colors duration-300 px-2 md:px-4 py-1 md:py-2 rounded-lg hover:bg-white/10 text-sm md:text-base">Contacto</Link>
           </div>
 
           {/* Mobile Hamburger */}
