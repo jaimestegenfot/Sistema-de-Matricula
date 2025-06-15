@@ -1,4 +1,4 @@
-
+"use client"
 
 import HeroSection from './components/HeroSection';
 import RegistrationForm from './components/RegistrationForm';
