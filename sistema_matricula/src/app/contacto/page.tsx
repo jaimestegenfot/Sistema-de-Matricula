@@ -45,7 +45,7 @@ export default function Contacto() {
         telefono: '',
         mensaje: ''
       });
-    } catch (error) {
+    } catch {
       await Swal.fire({
         title: 'Error',
         text: 'Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.',

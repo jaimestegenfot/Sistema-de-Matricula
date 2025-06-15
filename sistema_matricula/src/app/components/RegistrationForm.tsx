@@ -71,7 +71,7 @@ export default function RegistrationForm() {
         ocupacion: '',
         correo: ''
       });
-    } catch (error) {
+    } catch {
       await Swal.fire({
         title: 'Error',
         text: 'Hubo un problema al enviar la solicitud. Por favor, intenta nuevamente.',
